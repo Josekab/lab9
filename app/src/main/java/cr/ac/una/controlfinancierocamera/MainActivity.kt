@@ -92,19 +92,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            val currentFragment = supportFragmentManager.findFragmentById(R.id.home_content)
-
-            if (currentFragment is ListControlFinancieroFragment) {
-                super.onBackPressed()
-            } else {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.home_content, ListControlFinancieroFragment())
-                    .commit()
-            }
-        }
+        super.onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
