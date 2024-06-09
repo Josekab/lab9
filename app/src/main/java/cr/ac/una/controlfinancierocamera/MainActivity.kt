@@ -66,6 +66,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+
+
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
@@ -93,7 +95,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
-            super.onBackPressed()
+            val currentFragment = supportFragmentManager.findFragmentById(R.id.home_content)
+
+            if (currentFragment is ListControlFinancieroFragment) {
+                super.onBackPressed()
+            } else {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.home_content, ListControlFinancieroFragment())
+                    .commit()
+            }
         }
     }
 
