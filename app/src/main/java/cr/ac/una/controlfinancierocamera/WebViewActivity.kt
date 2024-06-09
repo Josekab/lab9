@@ -4,15 +4,26 @@ import android.os.Bundle
 import android.util.Log
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import cr.ac.una.controlfinancierocamera.R
-
+import androidx.fragment.app.FragmentTransaction
+import cr.ac.menufragment.ListControlFinancieroFragment
 
 class WebViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
+
+        val backButton = findViewById<Button>(R.id.backButton)
+        backButton.setOnClickListener {
+            // Replace the current fragment with ListControlFinancieroFragment
+            val fragment = ListControlFinancieroFragment()
+            val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         val webView = findViewById<WebView>(R.id.webView)
         webView.webViewClient = object : WebViewClient() {

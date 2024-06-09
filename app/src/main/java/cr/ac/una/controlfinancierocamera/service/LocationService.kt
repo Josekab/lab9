@@ -1,4 +1,4 @@
-package cr.ac.una.controlfinancierocamera
+package cr.ac.una.controlfinancierocamera.service
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -26,6 +26,8 @@ import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest
 import com.google.android.libraries.places.api.net.PlacesClient
+import cr.ac.una.controlfinancierocamera.R
+import cr.ac.una.controlfinancierocamera.WebViewActivity
 import cr.ac.una.controlfinancierocamera.controller.PageController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

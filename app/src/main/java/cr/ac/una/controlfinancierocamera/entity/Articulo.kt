@@ -1,8 +1,7 @@
-package cr.ac.una.controlfinancierocamera
+package cr.ac.una.controlfinancierocamera.entity
 
 import android.os.Parcel
 import android.os.Parcelable
-
 
 data class Articulo(
     val titulo: String?,
@@ -19,7 +18,6 @@ data class Articulo(
         parcel.writeString(titulo)
         parcel.writeString(contenido)
     }
-
 
 
     override fun describeContents(): Int {

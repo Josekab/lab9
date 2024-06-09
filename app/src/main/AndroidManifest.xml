@@ -28,7 +28,7 @@
             android:exported="false" />
 
         <service
-            android:name="cr.ac.una.controlfinancierocamera.LocationService"
+            android:name="cr.ac.una.controlfinancierocamera.service.LocationService"
             android:enabled="true"
             android:exported="true"
             android:foregroundServiceType="location" />
